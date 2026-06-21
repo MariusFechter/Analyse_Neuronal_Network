@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuronal Network</title>
-    
+
     <style>
-        /* Wir nutzen die System-Schriftarten des Handys (San Francisco bei Apple, Roboto bei Android).
-           Diese sind extrem performant, modern, clean und blockieren den FCP mit 0 ms! */
+        /* System-Fonts für 0ms Ladezeitverzögerung */
         html, body {
             background-color: #000000;
             color: #ffffff;
@@ -24,12 +23,23 @@
             margin: 0 auto;
         }
 
+        /* Das Logo rotiert jetzt wieder hocheffizient in 3D um die Y-Achse */
         .logo-image {
             width: 150px;  
             height: 150px; 
             object-fit: contain;
             display: block; 
             margin: 0 auto 50px auto; 
+            
+            /* Animation aktiv: 6 Sekunden pro Drehung, unendlich, flüssig */
+            animation: spin3D 6s linear infinite;
+            will-change: transform; /* Sagt dem Grafikchip des Handys Bescheid */
+        }
+
+        /* Die mathematische Definition der räumlichen Drehung */
+        @keyframes spin3D {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
         }
 
         h1 {
