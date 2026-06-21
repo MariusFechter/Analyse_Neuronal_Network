@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuronal Network</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
+        /* Wir nutzen die System-Schriftarten des Handys (San Francisco bei Apple, Roboto bei Android).
+           Diese sind extrem performant, modern, clean und blockieren den FCP mit 0 ms! */
         html, body {
             background-color: #000000;
             color: #ffffff;
-            font-family: 'Lato', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 0;
             width: 100%;
@@ -27,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* Komplett statisches Logo ohne jegliche Animations-Logik */
         .logo-image {
             width: 150px;  
             height: 150px; 
