@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuronal Network</title>
-    <link rel="icon" type="image/png" href="favicon.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         html, body {
             background-color: #000000;
             color: #ffffff;
+            /* sans-serif sorgt für den sofortigen Fallback beim Laden */
             font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
@@ -27,25 +28,22 @@
             margin: 0 auto;
         }
 
-        /* Styling für die 3D-Achsendrehung */
+        /* Optimiertes Logo-Styling für schnellen FCP */
         .logo-image {
-            max-width: 150px;
-            height: auto;
+            width: 150px;  /* Feste Breite verhindert Layout-Verschiebungen (CLS) */
+            height: 150px; /* Feste Höhe hilft dem Browser, den Text sofort darunter zu rendern */
+            object-fit: contain;
             display: block; 
             margin: 0 auto 50px auto; 
             
-            /* Erzeugt den 3D-Effekt: Drehung um die Y-Achse, alle 6 Sekunden unendlich */
+            /* CSS-Animationen sind hardwarebeschleunigt und belasten den FCP kaum */
             animation: spin3D 6s linear infinite;
+            will-change: transform; /* Signalisiert dem Grafikchip die Animation vorab */
         }
 
-        /* Definition der räumlichen Drehung (Y-Achse = von links nach rechts) */
         @keyframes spin3D {
-            from {
-                transform: rotateY(0deg);
-            }
-            to {
-                transform: rotateY(360deg);
-            }
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
         }
 
         h1 {
@@ -71,7 +69,7 @@
 <body>
 
     <div class="content-container">
-        <img src="logo_neuronal_network.png" alt="Neuronal Network Logo" class="logo-image">
+        <img src="logo_neuronal_network.png" alt="Neuronal Network Logo" class="logo-image" width="150" height="150">
         
         <h1>Was du gerade gesehen hast, ist nur ein Ausschnitt.</h1>
         <p>Die in der Anzeige beschriebenen Veränderungen folgen klaren neurochemischen Mechanismen im Gehirn.</p>
