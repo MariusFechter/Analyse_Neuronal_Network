@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neuronal Network</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         html, body {
             background-color: #000000;
             color: #ffffff;
-            font-family: sans-serif; /* Standard-Schriftart als Fallback */
+            font-family: 'Lato', sans-serif; /* Setzt Lato als Hauptschriftart */
             margin: 0;
             padding: 0;
             width: 100%;
@@ -17,23 +22,39 @@
         }
         
         .content-container {
-            padding: 40px 20px; /* Sicherer Abstand nach oben und zu den Seiten */
-            max-width: 600px;   /* Verhindert, dass der Text auf Desktop-Bildschirmen zu lang läuft */
-            margin: 0 auto;     /* Zentriert den Textblock horizontal auf der Seite */
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Styling für die größere, fette Überschrift */
+        h1 {
+            color: #ff9500;
+            font-size: 25px; /* Spürbar größer */
+            font-weight: 700; /* Fett */
+            line-height: 1.3;
+            margin-top: 0;
+            margin-bottom: 24px;
         }
 
         p {
-            margin-bottom: 20px; /* Gleichmäßiger Abstand zwischen den Absätzen */
-            line-height: 1.6;    /* Erhöht die Lesbarkeit auf Mobilgeräten */
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Klasse für fettgedruckten Fließtext */
+        .bold-text {
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
 
     <div class="content-container">
-        <p>Was du gerade gesehen hast, ist nur ein Ausschnitt.</p>
+        <h1>Was du gerade gesehen hast, ist nur ein Ausschnitt.</h1>
         <p>Die in der Anzeige beschriebenen Veränderungen folgen klaren neurochemischen Mechanismen im Gehirn.</p>
-        <p>Hier beginnt die vollständige Einordnung:</p>
+        <p class="bold-text">Hier beginnt die vollständige Einordnung:</p>
     </div>
 
 </body>
