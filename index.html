@@ -14,7 +14,7 @@
         html, body {
             background-color: #000000;
             color: #ffffff;
-            font-family: 'Lato', sans-serif; /* Setzt Lato als Hauptschriftart */
+            font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
             width: 100%;
@@ -22,16 +22,24 @@
         }
         
         .content-container {
-            padding: 100px 20px 40px 20px; /* Mehr Abstand nach oben (100px) */
+            padding: 100px 20px 40px 20px;
             max-width: 600px;
             margin: 0 auto;
+            text-align: center; /* Zentriert allen Text und Inline-Inhalt */
         }
 
-        /* Styling für die größere, fette Überschrift */
+        /* Styling für das zentrierte Logo */
+        .logo-image {
+            max-width: 150px; /* Begrenzt die maximale Breite des Logos */
+            height: auto; /* Erhält das Seitenverhältnis */
+            display: block; /* Ermöglicht die Verwendung von margin: auto */
+            margin: 0 auto 50px auto; /* Zentriert das Bild und fügt 50px Abstand nach unten hinzu */
+        }
+
         h1 {
             color: #ff9500;
-            font-size: 20px; /* Spürbar größer */
-            font-weight: 700; /* Fett */
+            font-size: 25px;
+            font-weight: 700;
             line-height: 1.3;
             margin-top: 0;
             margin-bottom: 24px;
@@ -43,7 +51,6 @@
             line-height: 1.6;
         }
 
-        /* Klasse für fettgedruckten Fließtext */
         .bold-text {
             font-weight: 700;
         }
@@ -52,6 +59,8 @@
 <body>
 
     <div class="content-container">
+        <img src="logo_neuronal_network.png" alt="Neuronal Network Logo" class="logo-image">
+        
         <h1>Was du gerade gesehen hast, ist nur ein Ausschnitt.</h1>
         <p>Die in der Anzeige beschriebenen Veränderungen folgen klaren neurochemischen Mechanismen im Gehirn.</p>
         <p class="bold-text">Hier beginnt die vollständige Einordnung:</p>
