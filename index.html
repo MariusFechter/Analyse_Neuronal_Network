@@ -50,13 +50,13 @@
             font-size: 16px;
             margin-bottom: 20px;
             line-height: 1.6;
+            color: #ffffff;
         }
 
         .bold-text {
             font-weight: 700;
         }
 
-        /* Die Größe wurde hier von 20px auf 18px reduziert */
         .subtitle-orange {
             color: #ff9500;
             font-weight: 700;
@@ -72,6 +72,27 @@
             margin-top: 15px;
             margin-bottom: 8px;
         }
+
+        /* Styling für die Deep-Dive Sektionen */
+        .mechanism-block {
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+
+        .mechanism-title {
+            color: #38b6ff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .source-text {
+            color: #777777;
+            font-size: 12px;
+            font-style: italic;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -82,10 +103,26 @@
         <h1>Was du gerade gesehen hast, ist nur ein Ausschnitt.</h1>
         <p>Die in der Anzeige beschriebenen Veränderungen folgen klaren neurochemischen Mechanismen im Gehirn.</p>
         <p class="bold-text">Hier beginnt die vollständige Einordnung:</p>
-        
+
+        <p class="highlight-blue">Hier beginnt die vollständige Analyse:</p>
         <p class="subtitle-orange">Neuropsychologische Mechanismen</p>
-        
         <p class="highlight-blue">Alkohol: „Enthemmtes Bewusstsein“</p>
+
+        <div class="mechanism-block">
+            <div class="mechanism-title">1. Verstärkung der GABA-Aktivität</div>
+            <p>Alkohol verstärkt die Wirkung von GABA (<i>Gamma-Aminobuttersäure</i>), einem hemmenden Botenstoff im zentralen Nervensystem, wodurch die Aktivität der Nervenzellen gedämpft wird.</p>
+            <p><span class="bold-text">Die Folge davon ist:</span> Entspannung, sinkende Hemmschwellen und ein lockeres Verhalten.</p>
+            <p>Hierdurch fühlen sich Menschen sozial offener, spontaner und weniger gehemmt in ihrer Interaktion mit anderen Personen.</p>
+            <div class="source-text">(Koob & Volkow, 2010)</div>
+        </div>
+
+        <div class="mechanism-block">
+            <div class="mechanism-title">2. Hemmung der Glutamat-Aktivität</div>
+            <p>Alkohol reduziert die Wirkung von Glutamat, das normalerweise Erregung und Informationsverarbeitung im Gehirn fördert.</p>
+            <p><span class="bold-text">Die Folge davon ist:</span> Die bewusste Steuerung des Verhaltens (<i>kognitive Kontrolle</i>) lässt nach, das Denken wird träge und man hinterfragt das eigene Handeln kaum noch kritisch.</p>
+            <p>Hierdurch reagieren Menschen impulsiver und treffen Entscheidungen oft ohne tiefere Abwägung.</p>
+            <div class="source-text">(Lovinger, 1997)</div>
+        </div>
     </div>
 
 </body>
