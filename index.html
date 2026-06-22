@@ -141,17 +141,38 @@
             letter-spacing: 1px;
         }
 
+        /* Starre Abstände für alle Blöcke im Inhaltsverzeichnis */
         .toc-block {
+            margin-top: 0;
             margin-bottom: 25px;
+            padding: 0;
+            position: relative; /* Wichtig für die absolute Positionierung der Linie */
+        }
+
+        /* Das Element erzeugt die Linie absolut fliegend über der 06 */
+        .toc-block.has-divider {
+            margin-top: 0; 
+        }
+
+        .toc-block.has-divider::before {
+            content: "";
+            position: absolute;
+            top: -13px; /* Exakt in der geometrischen Mitte zwischen 05 und 06 */
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #111111;
         }
 
         .toc-chapter {
             font-size: 15px;
             font-weight: 700;
             color: #ffffff;
+            margin-top: 0;
             margin-bottom: 8px;
             display: flex;
             gap: 12px;
+            line-height: 1.2;
         }
 
         .toc-chapter-num {
@@ -159,23 +180,11 @@
             font-weight: 500;
         }
 
-        .toc-sub-list {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 0 32px; 
-        }
-
-        .toc-sub-list li {
+        .toc-sub-items {
             font-size: 13px;
             color: #aaaaaa;
             line-height: 1.8;
-            position: relative;
-        }
-
-        .toc-divider {
-            border: 0;
-            border-top: 1px solid #111111;
-            margin: 30px 0;
+            margin-left: 32px;
         }
 
         .cta-container {
@@ -220,7 +229,6 @@
         <p class="subtitle-orange">Neuropsychologische Mechanismen</p>
         <p class="highlight-blue">Alkohol: „Enthemmtes Bewusstsein“</p>
 
-        <!-- 1. Verstärkung der GABA-Aktivität -->
         <div class="mechanism-block">
             <div class="mechanism-title">1. Verstärkung der GABA-Aktivität</div>
             <p>Alkohol verstärkt die Wirkung von GABA (<i>Gamma-Aminobuttersäure</i>), einem hemmenden Botenstoff im zentralen Nervensystem, wodurch die Aktivität der Nervenzellen gedämpft wird.</p>
@@ -229,7 +237,6 @@
             <div class="source-text">(Koob & Volkow, 2010)</div>
         </div>
 
-        <!-- 2. Hemmung der Glutamat-Aktivität -->
         <div class="mechanism-block">
             <div class="mechanism-title">2. Hemmung der Glutamat-Aktivität</div>
             <p>Alkohol reduziert die Wirkung von Glutamat, das normalerweise Erregung und Informationsverarbeitung im Gehirn fördert.</p>
@@ -240,92 +247,76 @@
 
         <p class="conclusion-text">Die vollständige Analyse zeigt die neurochemischen Prozesse aller Substanzen im Detail – und wie sie dein Verhalten systematisch beeinflussen.</p>
 
-        <!-- Neuer, finaler Teaser-Block -->
         <p class="subtitle-orange">Neuropsychologische Analyse</p>
         <p>Strukturierte Einordnung der Mechanismen hinter veränderten Bewusstseinszuständen.</p>
 
-        <!-- Gemeinsame Box für Cover und Fakten -->
         <div class="meta-container">
-            <!-- Dein Analyse-Cover -->
             <img src="cover.webp" alt="Analyse Cover" class="cover-container">
 
-            <!-- Perfekt bündig unter der linken Coverkante und dem Text darüber -->
             <div class="cover-facts-left">
                 · 26 Seiten Analyse<br>
                 · 27 wissenschaftliche Quellen
             </div>
         </div>
 
-        <!-- --- KAPITELÜBERSICHT --- -->
         <div class="toc-section">
             <div class="toc-main-title">Kapitelübersicht</div>
 
-            <!-- 1. LSD -->
             <div class="toc-block">
                 <div class="toc-chapter"><span class="toc-chapter-num">01</span> LSD: Erweitertes Bewusstsein</div>
-                <ul class="toc-sub-list">
-                    <li>· Wirkung auf das Bewusstsein</li>
-                    <li>· Neuropsychologische Mechanismen</li>
-                    <li>· Bewusstseinseffekte</li>
-                </ul>
+                <div class="toc-sub-items">
+                    · Wirkung auf das Bewusstsein<br>
+                    · Neuropsychologische Mechanismen<br>
+                    · Bewusstseinseffekte
+                </div>
             </div>
 
-            <!-- 2. Psilocybin -->
             <div class="toc-block">
                 <div class="toc-chapter"><span class="toc-chapter-num">02</span> Psilocybin: Introspektives Bewusstsein</div>
-                <ul class="toc-sub-list">
-                    <li>· Wirkung auf das Bewusstsein</li>
-                    <li>· Neuropsychologische Mechanismen</li>
-                    <li>· Bewusstseinseffekte</li>
-                </ul>
+                <div class="toc-sub-items">
+                    · Wirkung auf das Bewusstsein<br>
+                    · Neuropsychologische Mechanismen<br>
+                    · Bewusstseinseffekte
+                </div>
             </div>
 
-            <!-- 3. Kokain -->
             <div class="toc-block">
                 <div class="toc-chapter"><span class="toc-chapter-num">03</span> Kokain: Fokussiertes Bewusstsein</div>
-                <ul class="toc-sub-list">
-                    <li>· Wirkung auf das Bewusstsein</li>
-                    <li>· Neuropsychologische Mechanismen</li>
-                    <li>· Bewusstseinseffekte</li>
-                </ul>
+                <div class="toc-sub-items">
+                    · Wirkung auf das Bewusstsein<br>
+                    · Neuropsychologische Mechanismen<br>
+                    · Bewusstseinseffekte
+                </div>
             </div>
 
-            <!-- 4. Alkohol -->
             <div class="toc-block">
                 <div class="toc-chapter"><span class="toc-chapter-num">04</span> Alkohol: Enthemmtes Bewusstsein</div>
-                <ul class="toc-sub-list">
-                    <li>· Wirkung auf das Bewusstsein</li>
-                    <li>· Neuropsychologische Mechanismen</li>
-                    <li>· Bewusstseinseffekte</li>
-                </ul>
+                <div class="toc-sub-items">
+                    · Wirkung auf das Bewusstsein<br>
+                    · Neuropsychologische Mechanismen<br>
+                    · Bewusstseinseffekte
+                </div>
             </div>
 
-            <!-- 5. Cannabis -->
             <div class="toc-block">
                 <div class="toc-chapter"><span class="toc-chapter-num">05</span> Cannabis: Assoziatives Bewusstsein</div>
-                <ul class="toc-sub-list">
-                    <li>· Wirkung auf das Bewusstsein</li>
-                    <li>· Neuropsychologische Mechanismen</li>
-                    <li>· Bewusstseinseffekte</li>
-                </ul>
+                <div class="toc-sub-items">
+                    · Wirkung auf das Bewusstsein<br>
+                    · Neuropsychologische Mechanismen<br>
+                    · Bewusstseinseffekte
+                </div>
             </div>
 
-            <hr class="toc-divider">
-
-            <!-- 6. Überblick -->
-            <div class="toc-block">
+            <div class="toc-block has-divider">
                 <div class="toc-chapter"><span class="toc-chapter-num">06</span> Psychoaktive Effekte im Überblick</div>
             </div>
 
-            <!-- 7. Literaturverzeichnis -->
             <div class="toc-block">
                 <div class="toc-chapter"><span class="toc-chapter-num">07</span> Literaturverzeichnis</div>
             </div>
         </div>
 
-        <!-- --- FINALE CTA-ZONE --- -->
         <div class="cta-container">
-            <!-- Zielgerichteter Link zu deiner Publikation hinterlegt -->
             <a href="https://publikationen.neuronalnetwork.de/buy?s=1&cart_links%5B%5D=CfIph&qty%5BCfIph%5D=1" class="cta-button">Analyse jetzt freischalten</a>
         </div>
 
