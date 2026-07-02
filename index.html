@@ -33,6 +33,7 @@
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1988847275335071&ev=PageView&noscript=1"/>
     </noscript>
     
+    <!-- Neuropsychologischer Filter: ViewContent nach 10 Sekunden -->
     <script type="text/javascript">
         setTimeout(function() {
             if (typeof fbq === 'function') {
@@ -41,7 +42,43 @@
                     content_category: 'Digital Publication'
                 });
             }
-        }, 4000);
+        }, 10000);
+    </script>
+
+    <!-- Verhaltens-Tracking für CTA-Interaktionen -->
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            const ctaButtons = document.querySelectorAll(".lemonsqueezy-button");
+            
+            ctaButtons.forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    // Generiere eine eindeutige ID für dieses spezifische Checkout-Event
+                    const uniqueEventId = "checkout_" + Date.now();
+
+                    // 1. SOFORT beim Klick: AddToCart feuern
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'AddToCart', {
+                            content_name: 'Neuropsychologische Analyse',
+                            content_category: 'Digital Publication',
+                            value: 15.00,
+                            currency: 'EUR'
+                        }, { eventID: uniqueEventId });
+                    }
+
+                    // 2. NACH 10 SEKUNDEN Verweildauer im Checkout: InitiateCheckout feuern
+                    setTimeout(function() {
+                        if (typeof fbq === 'function') {
+                            fbq('track', 'InitiateCheckout', {
+                                content_name: 'Neuropsychologische Analyse',
+                                content_category: 'Digital Publication',
+                                value: 15.00,
+                                currency: 'EUR'
+                            }, { eventID: uniqueEventId });
+                        }
+                    }, 10000);
+                });
+            });
+        });
     </script>
     
     <style>
@@ -462,6 +499,7 @@
             </div>
         </div>
 
+        <!-- Erster CTA-Button -->
         <div class="cta-container">
             <a href="https://neuronalnetwork.lemonsqueezy.com/checkout/buy/7069910f-b9b9-42e2-8365-00565b3f0f75" class="cta-button lemonsqueezy-button">Analyse jetzt freischalten</a>
               <span class="cta-subtext">Direkter Zugriff nach dem Kauf.</span>
@@ -473,7 +511,7 @@
         <h2>Warum diese Analyse relevant ist</h2>
         
         <p>Diese Analyse macht sichtbar, wie neuropsychologische Prozesse in veränderten Bewusstseinszuständen konkret dein Wahrnehmen, Entscheiden und Verhalten beeinflussen.</p>
-        <p>Viele dieser Veränderungen laufen automatisch ab – oft bevor sie bewusst eingeordnet oder verstanden werden.</p>
+        <p>Many dieser Veränderungen laufen automatisch ab – oft bevor sie bewusst eingeordnet oder verstanden werden.</p>
         <p class="bold-text">Du fühlst dich nicht zufällig anders.</p>
         <p>In diesen Momenten verändert sich die Art, wie dein Gehirn Informationen verarbeitet und Entscheidungen trifft.</p>
 
@@ -553,6 +591,7 @@
             </p>
         </div>
 
+        <!-- Zweiter CTA-Button -->
         <div class="cta-container" style="margin-top: 40px;">
             <a href="https://neuronalnetwork.lemonsqueezy.com/checkout/buy/7069910f-b9b9-42e2-8365-00565b3f0f75" class="cta-button lemonsqueezy-button">Analyse jetzt freischalten</a>
             <span class="cta-subtext">Direkter Zugriff nach dem Kauf.</span>
