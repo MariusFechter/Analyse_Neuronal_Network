@@ -52,10 +52,8 @@
             
             ctaButtons.forEach(function(button) {
                 button.addEventListener("click", function(event) {
-                    // Generiere eine eindeutige ID für dieses spezifische Checkout-Event
                     const uniqueEventId = "checkout_" + Date.now();
 
-                    // 1. SOFORT beim Klick: AddToCart feuern
                     if (typeof fbq === 'function') {
                         fbq('track', 'AddToCart', {
                             content_name: 'Neuropsychologische Analyse',
@@ -65,7 +63,6 @@
                         }, { eventID: uniqueEventId });
                     }
 
-                    // 2. NACH 10 SEKUNDEN Verweildauer im Checkout: InitiateCheckout feuern
                     setTimeout(function() {
                         if (typeof fbq === 'function') {
                             fbq('track', 'InitiateCheckout', {
@@ -98,28 +95,40 @@
             margin: 0 auto;
         }
 
+        /* Hero-Image: Optimierte Skalierung & sanfter Glow für System 1 */
         .logo-image {
-            width: 150px;  
-            height: 150px; 
+            width: 45%;  
+            max-width: 180px; 
+            height: auto; 
             object-fit: contain;
             display: block; 
-            margin: 0 auto 25px auto; 
-            animation: spin3D 6s linear infinite;
-            will-change: transform; 
+            margin: 10px auto 25px auto; 
+            filter: drop-shadow(0 0 15px rgba(56, 182, 255, 0.15));
         }
 
-        @keyframes spin3D {
-            from { transform: rotateY(0deg); }
-            to { transform: rotateY(360deg); }
-        }
-
-        h1 {
+        /* Hero Headline: Dominant & zentriert */
+        .hero-title {
             color: #ff9500;
-            font-size: 25px;
-            font-weight: 700;
-            line-height: 1.3;
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
             margin-top: 0;
-            margin-bottom: 24px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        /* Hero Subtitle: Saubere visuelle Hierarchie */
+        .hero-subtitle {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-top: 0;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         h2 {
@@ -423,17 +432,19 @@
 
     <div class="content-container">
 
+        <!-- Optimierter Hero-Bereich -->
         <img src="Alkohol_logo.webp" alt="Neuronal Network Logo" class="logo-image" width="150" height="150" fetchpriority="high">
         
-        <h1>Gehirn auf 2.0 Promille</h1>
-            <p class="bold-text">Warum sich dein Verhalten nicht zufällig verändert</p>
-    
-       <p>Die vollständige wissenschaftliche Analyse zeigt, welche neurochemischen Mechanismen hinter diesen Veränderungen stehen –<br>und warum Wahrnehmung, Entscheidungen und Verhalten sich systematisch verändern.</p>
+        <h1 class="hero-title">Gehirn auf<br>2.0 Promille</h1>
+        <p class="hero-subtitle">Warum sich dein Verhalten nicht zufällig verändert</p>
+        
+        <!-- Fließtext schließt sich organisch an -->
+        <p>Die vollständige wissenschaftliche Analyse zeigt, welche neurochemischen Mechanismen hinter diesen Veränderungen stehen –<br>und warum Wahrnehmung, Entscheidungen und Verhalten sich systematisch verändern.</p>
     
         <p class="highlight-blue">Alkohol: „Enthemmtes Bewusstsein“</p>
 
         <div class="mechanism-block">
-            <div class="mechanism-title">1. Verstärkung der GABA-Aktivität</div>
+            <div class="mechanism-title">1. Verminderung der GABA-Aktivität</div>
             <p>Alkohol verstärkt die Wirkung von GABA (<i>Gamma-Aminobuttersäure</i>), einem hemmenden Botenstoff im zentralen Nervensystem, wodurch die Aktivität der Nervenzellen gedämpft wird.</p>
             <p><span class="bold-text">Die Folge davon ist:</span> Entspannung, sinkende Hemmschwellen und ein lockeres Verhalten.</p>
             <p>Hierdurch fühlen sich Menschen sozial offener, spontaner und weniger gehemmt in ihrer Interaktion mit anderen Personen.</p>
@@ -504,7 +515,6 @@
             <a href="https://neuronalnetwork.lemonsqueezy.com/checkout/buy/7069910f-b9b9-42e2-8365-00565b3f0f75" class="cta-button lemonsqueezy-button">Analyse jetzt freischalten</a>
               <span class="cta-subtext">Direkter Zugriff nach dem Kauf.</span>
         </div>
-
 
         <div class="section-separator"></div>
 
