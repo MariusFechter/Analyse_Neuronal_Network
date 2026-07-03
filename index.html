@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!-- Google tag (gtag.js) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuronal Network - Analyse</title>
+    
+    <!-- 1. LCP BLITZ-START: Bild sofort laden, noch vor dem CSS-Parser -->
+    <link rel="preload" fetchpriority="high" as="image" href="Alkohol_logo.webp" type="image/webp">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- 2. TRACKING-DEFERRALS (Beseitigt die Total Blocking Time) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1BSY9Q4Z0W"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-1BSY9Q4Z0W');
     </script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neuronal Network - Analyse</title>
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-
+    <!-- Lemon Squeezy -->
     <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
 
+    <!-- Microsoft Clarity (Asynchron verpackt) -->
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "xbhzt1331m");
+        window.addEventListener('load', function() {
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "xbhzt1331m");
+        });
     </script>
     
+    <!-- Meta Pixel (Inaktiv während des kritischen Renderns) -->
     <script type="text/javascript">
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -43,15 +51,18 @@
         <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1988847275335071&ev=PageView&noscript=1"/>
     </noscript>
     
+    <!-- Delay für sekundäre Events zur Hauptthread-Schonung -->
     <script type="text/javascript">
-        setTimeout(function() {
-            if (typeof fbq === 'function') {
-                fbq('track', 'ViewContent', {
-                    content_name: 'Neuropsychologische Analyse',
-                    content_category: 'Digital Publication'
-                });
-            }
-        }, 10000);
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (typeof fbq === 'function') {
+                    fbq('track', 'ViewContent', {
+                        content_name: 'Neuropsychologische Analyse',
+                        content_category: 'Digital Publication'
+                    });
+                }
+            }, 2000); 
+        });
     </script>
 
     <script type="text/javascript">
@@ -80,7 +91,7 @@
                                 currency: 'EUR'
                             }, { eventID: uniqueEventId });
                         }
-                    }, 10000);
+                    }, 1000); // Von 10s auf 1s verkürzt, da der User JETZT klickt
                 });
             });
         });
@@ -103,7 +114,6 @@
             margin: 0 auto;
         }
 
-        /* Hero-Image: Optimierte Skalierung & sanfter Glow für System 1 */
         .logo-image {
             width: 45%;  
             max-width: 180px; 
@@ -114,7 +124,6 @@
             filter: drop-shadow(0 0 15px rgba(56, 182, 255, 0.15));
         }
 
-        /* Hero Headline: Dominant & linksbündig */
         .hero-title {
             color: #ff9500;
             font-size: 32px;
@@ -125,7 +134,6 @@
             text-align: left;
         }
 
-        /* Hero Subtitle: Saubere visuelle Hierarchie & linksbündig */
         .hero-subtitle {
             color: #ffffff;
             font-size: 20px;
@@ -167,7 +175,6 @@
             margin-bottom: 15px;
         }
 
-        /* Highlight Blue: Jetzt exakt identisch mit .mechanism-title für absolute Symmetrie */
         .highlight-blue {
             color: #38b6ff;
             font-size: 21px;
@@ -227,8 +234,6 @@
             border-left: 1px solid #38b6ff; 
             padding-left: 15px;
         }
-
-        /* --- INHALTSVERZEICHNIS & CTA --- */
 
         .toc-section {
             margin-top: 50px;
@@ -322,8 +327,6 @@
             display: block;
         }
 
-        /* --- DEEP DIVE ABSCHNITT (TEIL 2) --- */
-
         .section-separator {
             height: 1px;
             background-color: #111111;
@@ -411,8 +414,6 @@
             padding-top: 15px;
         }
 
-        /* --- FOOTER LEGAL LINKS --- */
-
         .footer-links {
             margin-top: 25px;
             display: flex;
@@ -430,6 +431,7 @@
         .footer-link:hover {
             color: #ffffff;
         }
+        
         .footer-link:active {
             opacity: 0.7;
         }
@@ -471,7 +473,7 @@
         <p>Strukturierte Einordnung der Mechanismen hinter veränderten Bewusstseinszuständen.</p>
 
         <div class="meta-container">
-            <img src="cover.webp" alt="Analyse Cover" class="cover-container">
+            <img src="cover.webp" alt="Analyse Cover" class="cover-container" loading="lazy">
             <div class="cover-facts-left">
                 · 26 Seiten Analyse<br>
                 · 27 wissenschaftliche Quellen
@@ -575,7 +577,7 @@
 
         <p class="conclusion-text" style="margin-top: 35px; margin-bottom: 40px;">
             Du verstehst nicht nur einzelne Mechanismen.<br> 
-            Sondern erkennst die wiederkehrenden Muster hinter deinem Verhalten in diesen Zuständen.<br>
+            Sondernd erkennst die wiederkehrenden Muster hinter deinem Verhalten in diesen Zuständen.<br>
         </p>
 
         <div class="specs-grid">
