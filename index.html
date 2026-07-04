@@ -17,7 +17,7 @@
     // PageView sofort
     fbq('track', 'PageView');
 
-    // ViewContent nach 10 Sekunden
+    // ViewContent nach 10 Sekunden Verweildauer
     setTimeout(function() {
         fbq('track', 'ViewContent');
     }, 10000);
@@ -389,9 +389,10 @@
     <script>
         let checkoutStarted = false;
         let qualifiedFired = false;
-        let timer = null;
+        let checkoutTimer = null;
 
         function trackCheckout() {
+            // 1. InitiateCheckout feuert immer sofort beim Klick
             fbq('track', 'InitiateCheckout');
 
             if (checkoutStarted) return;
@@ -399,16 +400,40 @@
 
             const start = Date.now();
 
-            timer = setInterval(() => {
+            // 2. Timer startet im Hintergrund
+            checkoutTimer = setInterval(() => {
                 const elapsed = Date.now() - start;
 
-                if (elapsed >= 10000 && !qualifiedFired) {
-                    fbq('track', 'QualifiedCheckout');
-                    qualifiedFired = true;
-                    clearInterval(timer);
+                if (elapsed >= 10000) {
+                    if (!qualifiedFired) {
+                        fbq('track', 'QualifiedCheckout');
+                        qualifiedFired = true;
+                    }
+                    clearInterval(checkoutTimer);
                 }
             }, 500);
         }
+
+        // 3. Systemischer Schutz: Wenn das Lemon Squeezy Popup geschlossen wird
+        window.createLemonSqueezy = function() {
+            if (window.LemonSqueezy) {
+                window.LemonSqueezy.Setup({
+                    eventHandler: (event) => {
+                        // Falls das Fenster geschlossen wird, bevor die 10 Sekunden um sind:
+                        if (event.event === 'LemonSqueezy.Url.Close') {
+                            if (checkoutTimer) {
+                                clearInterval(checkoutTimer); // Timer hart zerstören
+                                checkoutTimer = null;
+                            }
+                            checkoutStarted = false; // Zurücksetzen für den nächsten Klick
+                        }
+                    }
+                });
+            }
+        };
+
+        // Event-Listener für das asynchrone Laden der LS Extensions
+        window.addEventListener('lemonSqueezyExtensionsLoaded', window.createLemonSqueezy);
     </script>
 
 </head>
