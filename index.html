@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -186,25 +188,104 @@
             margin-bottom: 12px;
         }
 
-        .mechanism-block {
-            margin-top: 35px;
-            margin-bottom: 35px;
+        /* --- STYLING FÜR DAS ADAPTIVE BUCH-LAYOUT --- */
+        .book-container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            margin: 0 0 35px 0;
+            box-sizing: border-box;
         }
 
-        .mechanism-title {
+        .book-page {
+            flex: 1;
+            background-color: #0A0A0C; 
+            border: 1px solid #1C1C1E; 
+            border-radius: 8px;
+            padding: 24px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .page-number {
+            font-size: 11px;
+            font-weight: 600;
             color: #38b6ff;
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
         }
 
-        .source-text {
+        .page-heading {
+            color: #38b6ff;
+            font-size: 19px;
+            font-weight: 700;
+            margin: 0 0 14px 0;
+            line-height: 1.3;
+        }
+
+        .page-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #ffffff;
+            margin: 0 0 16px 0;
+        }
+
+        .page-text i {
+            color: #aaaaaa;
+        }
+
+        .consequence-box {
+            background-color: #121214;
+            border-left: 2px solid #ffffff;
+            padding: 14px;
+            border-radius: 0 6px 6px 0;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .source-text-book {
             color: #777777;
             font-size: 12px;
             font-style: italic;
-            margin-top: -10px;
-            margin-bottom: 20px;
+            margin-top: auto; 
+            padding-top: 10px;
         }
+
+        .swipe-hint {
+            display: none;
+            text-align: center;
+            color: #555555;
+            font-size: 12px;
+            font-style: italic;
+            margin-top: -15px;
+            margin-bottom: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .book-container {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 14px;
+                padding-bottom: 8px;
+            }
+
+            .book-page {
+                min-width: 280px;
+                max-width: 280px;
+                scroll-snap-align: center;
+                padding: 20px;
+            }
+
+            .swipe-hint {
+                display: block;
+            }
+        }
+        /* -------------------------------------------- */
 
         .conclusion-text {
             font-size: 18px;
@@ -482,23 +563,39 @@
       
         <p class="intro-teaser-text">Ein Einblick in die vollständige Analyse:</p>
 
-        <p class="highlight-blue">Alkohol:<br> „Enthemmtes Bewusstsein“</p>
+        <p class="highlight-blue" style="margin-bottom: 25px;">Alkohol:<br> „Enthemmtes Bewusstsein“</p>
 
-        <div class="mechanism-block">
-            <div class="mechanism-title">1. Verminderung der GABA-Aktivität</div>
-            <p>Alkohol verstärkt die Wirkung von GABA (<i>Gamma-Aminobuttersäure</i>), einem hemmenden Botenstoff im zentralen Nervensystem, wodurch die Aktivität der Nervenzellen gedämpft wird.</p>
-            <p><span class="bold-text">Die Folge davon ist:</span> Entspannung, sinkende Hemmschwellen und ein lockeres Verhalten.</p>
-            <p>Hierdurch fühlen sich Menschen sozial offener, spontaner und weniger gehemmt in ihrer Interaktion mit anderen Personen.</p>
-            <div class="source-text">(Koob & Volkow, 2010)</div>
+        <!-- DAS NEUE ADAPTIVE BUCH-LAYOUT -->
+        <div class="book-container">
+            
+            <!-- Linke Buchseite (Punkt 1) -->
+            <div class="book-page">
+                <span class="page-number">01</span>
+                <h4 class="page-heading">Verminderung der GABA-Aktivität</h4>
+                <p class="page-text">Alkohol verstärkt die Wirkung von GABA Gamma-Aminobuttersäure, einem hemmenden Botenstoff im zentralen Nervensystem, wodurch die Aktivität der Nervenzellen gedämpft wird.</p>
+                <div class="consequence-box">
+                    <span class="bold-text">Die Folge davon ist:</span> Entspannung, sinkende Hemmschwellen und ein lockeres Verhalten.
+                </div>
+                <p class="page-text">Hierdurch fühlen sich Menschen sozial offener, spontaner und weniger gehemmt in ihrer Interaktion mit anderen Personen.</p>
+                <div class="source-text-book">(Koob & Volkow, 2010)</div>
+            </div>
+
+            <!-- Rechte Buchseite (Punkt 2) -->
+            <div class="book-page">
+                <span class="page-number">02</span>
+                <h4 class="page-heading">Hemmung der Glutamat-Aktivität</h4>
+                <p class="page-text">Alkohol reduziert die Wirkung von Glutamat, das normalerweise Erregung und Informationsverarbeitung im Gehirn vorantreibt.</p>
+                <div class="consequence-box">
+                    <span class="bold-text">Die Folge davon ist:</span> Die kognitive Kontrolle lässt nach, das Denken wird träge und man hinterfragt das eigene Handeln kaum noch kritisch.
+                </div>
+                <p class="page-text">Hierdurch reagieren Menschen impulsiver und treffen Entscheidungen oft ohne tiefere Abwägung.</p>
+                <div class="source-text-book">(Lovinger, 1997)</div>
+            </div>
+
         </div>
 
-        <div class="mechanism-block">
-            <div class="mechanism-title">2. Hemmung der Glutamat-Aktivität</div>
-            <p>Alkohol reduziert die Wirkung von Glutamat, das normalerweise Erregung und Informationsverarbeitung im Gehirn vorantreibt.</p>
-            <p><span class="bold-text">Die Folge davon ist:</span> Die kognitive Kontrolle lässt nach, das Denken wird träge und man hinterfragt das eigene Handeln kaum noch kritisch.</p>
-            <p>Hierdurch reagieren Menschen impulsiver und treffen Entscheidungen oft ohne tiefere Abwägung.</p>
-            <div class="source-text">(Lovinger, 1997)</div>
-        </div>
+        <!-- Visueller Hinweis auf Smartphones -->
+        <div class="swipe-hint">← Wische für Punkt 2 →</div>
 
         <p class="subtitle-orange">Neuropsychologische Analyse</p>
         <p>Diese Analyse ist keine Meinung oder Interpretation.<br> Sie ist eine strukturierte neuropsychologische Einordnung typischer Mechanismen hinter veränderten Bewusstseinszuständen.</p>
