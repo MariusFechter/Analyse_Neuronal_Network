@@ -4,270 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEUROLAB | Neuronal Network</title>
-    <!-- Standard Clean Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             background-color: #000000;
             color: #F5F5F5;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
-            overflow-x: hidden;
-            padding: 50px 16px 50px 16px; /* Etwas weniger Padding am Rand für mehr Platz auf Mobile */
+            padding: 40px 20px;
         }
 
         .header-container {
             text-align: center;
             width: 100%;
-            max-width: 800px;
-            margin-bottom: 40px;
+            max-width: 400px;
+            margin-bottom: 30px;
         }
 
-        /* Header Titel */
+        /* Überschrift jetzt deutlich kleiner und eleganter */
         h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-size: 1.25rem;
+            font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             color: #ff7517;
-            line-height: 1.2;
         }
 
-        /* Header Subline */
         p.subline {
-            font-size: 1rem;
+            font-size: 0.75rem;
             font-weight: 400;
             letter-spacing: 0.15em;
             color: #d9d9d9;
             text-transform: uppercase;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
-        /* --- PRODUCT GRID --- */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Erzwingt 2 Spalten */
-            gap: 20px; /* Abstand zwischen den Kacheln auf Desktop */
-            width: 100%;
-            max-width: 800px; /* Hält die Kacheln auf Desktop elegant kompakt zusammen */
-            margin-top: 10px;
-        }
-
-        /* --- APP-STORE STYLE PRODUCT CARD --- */
+        /* Einzelne Analyse-Kachel */
         .product-card {
             background-color: #080808;
             border: 1px solid #161616;
-            border-radius: 18px; /* Leicht reduzierter Radius für kleinere Kacheln */
+            border-radius: 20px;
+            width: 100%;
+            max-width: 340px; /* Perfekte, kompakte Größe */
             overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* Sorgt dafür, dass beide Kacheln exakt gleich hoch sind */
+            transition: transform 0.3s ease;
         }
 
-        /* Hover-Effekt */
-        .product-card:hover {
-            transform: translateY(-4px);
-            border-color: #222;
-            box-shadow: 0 12px 30px rgba(56, 182, 255, 0.04);
-        }
+        .product-card:hover { transform: translateY(-5px); border-color: #333; }
 
-        /* Bild-Container */
-        .card-image-wrapper {
-            width: 100%;
-            padding-top: 130%; /* Perfektes Buch/Cover-Verhältnis */
-            position: relative;
-            background-color: #030303;
-        }
+        .card-image-wrapper { width: 100%; padding-top: 135%; position: relative; }
+        .card-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 
-        .card-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: scale 0.5s ease;
-        }
-
-        .product-card:hover .card-image {
-            scale: 1.02;
-        }
-
-        /* Content-Bereich */
-        .card-content {
-            padding: 16px; /* Kompakteres Padding */
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1; /* Schiebt den Footer nach ganz unten */
-        }
+        .card-content { padding: 20px; }
 
         .tag {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: #ff7517;
-            margin-bottom: 6px;
-            display: inline-block;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        .product-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #ffffff;
-            line-height: 1.3;
-            margin-bottom: 4px;
-        }
+        .product-title { font-size: 1.1rem; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+        .product-subtitle { font-size: 0.8rem; color: #999; margin-bottom: 20px; }
 
-        .product-subtitle {
-            font-size: 0.8rem;
-            font-weight: 400;
-            color: #999999;
-            margin-bottom: 16px;
-            line-height: 1.4;
-            flex-grow: 1; /* Sorgt dafür, dass der Preisbereich immer auf gleicher Höhe startet */
-        }
+        .card-footer { display: flex; justify-content: space-between; align-items: center; }
+        .price-tag { font-size: 1rem; font-weight: 700; }
 
-        /* Preis & Action-Button Reihe */
-        .card-footer {
-            display: flex;
-            flex-direction: column; /* Stapelt Preis und Button für sauberen Mobile-Look */
-            gap: 10px;
-            margin-top: auto; /* Klebt am unteren Rand der Karte */
-        }
-
-        .price-tag {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .price-tag span {
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: #888888;
-            margin-left: 2px;
-        }
-
-        /* Checkout-Button (Weißer Text + Blaues Branding) */
         .checkout-btn {
             background-color: #38b6ff;
-            color: #ffffff; /* Weißer Text wie gewünscht */
+            color: #ffffff; /* Weißer Text auf Blau */
             text-decoration: none;
-            padding: 10px 12px;
+            padding: 10px 16px;
             border-radius: 10px;
             font-size: 0.8rem;
             font-weight: 700;
-            text-align: center;
-            transition: background-color 0.2s ease, transform 0.1s ease;
-            width: 100%; /* Volle Breite für stabilen Halt auf Mobile */
+            transition: background-color 0.2s;
         }
 
-        .checkout-btn:hover {
-            background-color: #219ee6;
-        }
-
-        .checkout-btn:active {
-            transform: scale(0.97);
-        }
-
-        /* --- RESPONSIVE ADJUSTMENTS --- */
-        @media (max-width: 768px) {
-            body {
-                padding-top: 30px;
-            }
-            h1 {
-                font-size: 1.6rem;
-            }
-            p.subline {
-                font-size: 0.8rem;
-                margin-top: 6px;
-            }
-            .product-grid {
-                gap: 12px; /* Engerer Spalt auf dem Smartphone für maximale Displaynutzung */
-            }
-            .card-content {
-                padding: 12px; /* Noch kompakter auf Handys */
-            }
-            .product-title {
-                font-size: 0.9rem; /* Leicht verkleinert, damit nichts überlappt */
-            }
-            .product-subtitle {
-                font-size: 0.75rem;
-                margin-bottom: 10px;
-            }
-            .price-tag {
-                font-size: 1rem;
-            }
-            .checkout-btn {
-                padding: 8px 6px;
-                font-size: 0.75rem;
-            }
-        }
+        .checkout-btn:hover { background-color: #219ee6; }
     </style>
 </head>
 <body>
 
-    <!-- Header Bereich -->
     <div class="header-container">
         <h1>NEUROLAB | NEURONAL NETWORK</h1>
         <p class="subline">Neuropsychologie & Muster</p>
     </div>
 
-    <!-- Product Grid (2 Spalten) -->
-    <div class="product-grid">
-
-        <!-- Kachel 1: Neuropsychologische Analyse -->
-        <div class="product-card">
-            <div class="card-image-wrapper">
-                <img src="Preview_slide3.jpg" alt="Rausch oder Realität? Analyse" class="card-image">
-            </div>
-            <div class="card-content">
-                <span class="tag">Analyse</span>
-                <h2 class="product-title">Rausch oder Realität?</h2>
-                <p class="product-subtitle">Warum Substanzen dein Verhalten verändern.</p>
-                
-                <div class="card-footer">
-                    <div class="price-tag">15,00<span>€</span></div>
-                    <!-- Direkter Checkout Link -->
-                    <a href="https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d" class="checkout-btn">Analyse freischalten</a>
-                </div>
+    <div class="product-card">
+        <div class="card-image-wrapper">
+            <img src="Preview_slide3.jpg" alt="Analyse" class="card-image">
+        </div>
+        <div class="card-content">
+            <span class="tag">Analyse</span>
+            <h2 class="product-title">Rausch oder Realität?</h2>
+            <p class="product-subtitle">Warum Substanzen dein Verhalten verändern.</p>
+            
+            <div class="card-footer">
+                <div class="price-tag">15,00 €</div>
+                <a href="https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d" class="checkout-btn">Analyse freischalten</a>
             </div>
         </div>
-
-        <!-- Kachel 2: Lernsystem (Platzhalter für dich zum Anpassen) -->
-        <div class="product-card">
-            <div class="card-image-wrapper">
-                <!-- Ersetze 'dein-lernsystem-bild.jpg' mit dem echten Pfad -->
-                <img src="dein-lernsystem-bild.jpg" alt="Lernsystem" class="card-image" style="background-color: #111;">
-            </div>
-            <div class="card-content">
-                <span class="tag">Lernsystem</span>
-                <h2 class="product-title">Lernsystem</h2>
-                <p class="product-subtitle">Dein wissenschaftlicher Guide für mentale Muster.</p>
-                
-                <div class="card-footer">
-                    <div class="price-tag">49,00<span>€</span></div>
-                    <!-- Passe hier den Checkout-Link für das Lernsystem an -->
-                    <a href="#" class="checkout-btn">Jetzt starten</a>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 </body>
