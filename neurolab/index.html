@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEUROLAB | Neuronal Network</title>
-    <!-- Standard Clean Sans-Serif (Inter is clean, timeless, and standard) -->
+    <!-- Standard Clean Sans-Serif -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -21,10 +21,11 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            justify-content: flex-start; /* Schiebt den Inhalt nach oben */
+            align-items: center;         /* Zentriert den Inhalt horizontal */
             overflow: hidden;
-            padding: 24px;
+            padding: 80px 24px 24px 24px; /* 80px Abstand zum oberen Bildschirmrand */
         }
 
         .container {
@@ -35,7 +36,7 @@
 
         /* Clean, standard uppercase headline on a single line */
         h1 {
-            font-size: 3.5vw; /* Fluid scaling to keep it on one line */
+            font-size: 3.5vw; /* Passt sich dynamisch der Bildschirmbreite an */
             font-weight: 800;
             letter-spacing: 0.05em;
             text-transform: uppercase;
@@ -57,9 +58,12 @@
 
         /* Responsive adjustments for mobile viewports */
         @media (max-width: 768px) {
+            body {
+                padding-top: 40px; /* Weniger Abstand auf dem Smartphone */
+            }
             h1 {
                 font-size: 1.8rem;
-                white-space: normal; /* Allow wrapping on mobile so it doesn't clip */
+                white-space: normal; /* Erlaubt Zeilenumbruch auf kleinen Screens */
             }
             p.subline {
                 font-size: 0.9rem;
