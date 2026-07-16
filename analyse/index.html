@@ -35,17 +35,9 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Speculation Rules API für echtes Prerendering des Checkouts auf eigener Subdomain -->
-    <script type="speculationrules">
-    {
-      "prerender": [
-        {
-          "source": "list",
-          "urls": ["https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d"]
-        }
-      ]
-    }
-    </script>
+    <!-- Optimierter Verbindungsaufbau zur Checkout-Subdomain ohne verfrühtes Prerendering -->
+    <link rel="preconnect" href="https://zugang.neuronalnetwork.de">
+    <link rel="dns-prefetch" href="https://zugang.neuronalnetwork.de">
 
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -576,7 +568,7 @@
             <div class="book-page">
                 <span class="page-number">01</span>
                 <h4 class="page-heading">Verminderung der GABA-Aktivität</h4>
-                <p class="page-text">Alkohol verstärkt die Wirkung von GABA (Gamma-Aminobuttersäure), einem hemmenden Botenstoff im zentralen Nervensystem, wodurch die Aktivität der Nervenzellen gedämpft wird.</p>
+                <p class="page-text">Alkohol verstärkt die Wirkung von GABA (Gamma-Aminobuttersäure), einem hemmenden Botenstoff im zentralen Nervensystem, wodurch die activity der Nervenzellen gedämpft wird.</p>
                 <div class="consequence-box">
                     <span class="bold-text">Die Folge davon ist:</span> Entspannung, sinkende Hemmschwellen und ein lockeres Verhalten.
                 </div>
