@@ -35,6 +35,18 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- Speculation Rules API für echtes Prerendering des Checkouts auf eigener Subdomain -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "source": "list",
+          "urls": ["https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d"]
+        }
+      ]
+    }
+    </script>
+
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
