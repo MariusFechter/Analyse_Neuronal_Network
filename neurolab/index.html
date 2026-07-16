@@ -22,10 +22,10 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Schiebt den Inhalt nach oben */
-            align-items: center;         /* Zentriert den Inhalt horizontal */
+            justify-content: flex-start;
+            align-items: center;
             overflow: hidden;
-            padding: 80px 24px 24px 24px; /* 80px Abstand zum oberen Bildschirmrand */
+            padding: 80px 24px 24px 24px; /* Abstand oben auf Desktop */
         }
 
         .container {
@@ -36,16 +36,16 @@
 
         /* Clean, standard uppercase headline on a single line */
         h1 {
-            font-size: 3.5vw; /* Passt sich dynamisch der Bildschirmbreite an */
+            font-size: 3.5vw; 
             font-weight: 800;
             letter-spacing: 0.05em;
             text-transform: uppercase;
             color: #ff7517;
             line-height: 1.2;
-            white-space: nowrap;
+            white-space: nowrap; /* Verhindert jeglichen Zeilenumbruch */
         }
 
-        /* Standard clean subline in the requested d9d9d9 grey */
+        /* Standard clean subline in grey */
         p.subline {
             font-size: 1.5vw;
             font-weight: 400;
@@ -53,22 +53,33 @@
             color: #d9d9d9;
             text-transform: uppercase;
             margin-top: 12px;
-            white-space: nowrap;
+            white-space: nowrap; /* Verhindert auch hier den Umbruch */
         }
 
-        /* Responsive adjustments for mobile viewports */
+        /* Perfekte Anpassung für mobile Bildschirme (Handys) */
         @media (max-width: 768px) {
             body {
-                padding-top: 40px; /* Weniger Abstand auf dem Smartphone */
+                padding-top: 60px; /* Leicht reduzierter Abstand nach oben auf dem Handy */
             }
             h1 {
-                font-size: 1.8rem;
-                white-space: normal; /* Erlaubt Zeilenumbruch auf kleinen Screens */
+                font-size: 4.8vw; /* Skaliert die Schrift exakt passend zur Displaybreite */
+                letter-spacing: 0.02em; /* Minimal enger für perfekten Halt auf einer Zeile */
+                white-space: nowrap; /* Erzwingt die einzeilige Darstellung */
             }
             p.subline {
-                font-size: 0.9rem;
-                white-space: normal;
+                font-size: 2.5vw; /* Skaliert auch die Unterzeile sauber einzeilig mit */
                 margin-top: 8px;
+                white-space: nowrap;
+            }
+        }
+
+        /* Extrem kleine Displays (z.B. ältere iPhones) */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 4.5vw;
+            }
+            p.subline {
+                font-size: 2.2vw;
             }
         }
     </style>
