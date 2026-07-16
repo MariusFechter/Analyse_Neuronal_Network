@@ -35,8 +35,6 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
-
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -525,7 +523,7 @@
     </style>
 
     <script>
-        function openCheckout(event) {
+        function triggerPixelAndRedirect(event, url) {
             if (event) event.preventDefault();
             
             // Meta Pixel absenden
@@ -533,15 +531,8 @@
                 fbq('track', 'InitiateCheckout');
             }
             
-            const checkoutUrl = 'https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d';
-            
-            // Wenn LemonSqueezy bereit ist, öffne das Overlay direkt vor Ort
-            if (typeof LemonSqueezy !== 'undefined' && LemonSqueezy.Url && typeof LemonSqueezy.Url.Open === 'function') {
-                LemonSqueezy.Url.Open(checkoutUrl);
-            } else {
-                // Andernfalls direkt weiterleiten (kein Bug, kein Scrollen nach oben)
-                window.location.href = checkoutUrl;
-            }
+            // Sofortige Weiterleitung zum Checkout
+            window.location.href = url;
         }
     </script>
 
@@ -556,8 +547,9 @@
       
         <img src="Alkohol_logo.webp" alt="Neuronal Network Logo" class="logo-image" width="150" height="150" fetchpriority="high">
         
+        <!-- CTA 1: Oberer Soft-Link (direkte Weiterleitung mit Pixel-Trigger) -->
         <div class="hero-soft-cta">
-            <a href="https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d" class="hero-soft-link lemonsqueezy-button" onclick="fbq('track', 'InitiateCheckout');">Vollständige Analyse freischalten</a>
+            <a href="https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d" class="hero-soft-link" onclick="triggerPixelAndRedirect(event, this.href);">Vollständige Analyse freischalten</a>
             <span class="hero-soft-subtext">(Sofortiger Zugriff nach dem Kauf.)</span>
         </div>
       
@@ -662,8 +654,9 @@
 
         <p>Wenn du diese Muster einmal <br> verstanden hast, <br>verändert sich die Art, wie du dein eigenes <br> Verhalten einordnest – <br> nicht nur intuitiv, sondern auf einer <br> wissenschaftlich fundierten Grundlage.</p>
         
+        <!-- CTA 2: Erster Haupt-Button (direkte Weiterleitung mit Pixel-Trigger) -->
         <div class="cta-container">
-            <a href="#" class="cta-button" onclick="openCheckout(event);">Analyse jetzt freischalten</a>
+            <a href="https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d" class="cta-button" onclick="triggerPixelAndRedirect(event, this.href);">Analyse jetzt freischalten</a>
             <span class="cta-subtext">Direkter Zugriff nach dem Kauf &nbsp;·&nbsp; 14 Tage Geld-zurück-Garantie</span>
         </div>
 
@@ -758,8 +751,9 @@
 
         </div>
 
+        <!-- CTA 3: Unterer Haupt-Button (direkte Weiterleitung mit Pixel-Trigger) -->
         <div class="cta-container" style="margin-top: 40px;">
-            <a href="#" class="cta-button" onclick="openCheckout(event);">Analyse jetzt freischalten</a>
+            <a href="https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d" class="cta-button" onclick="triggerPixelAndRedirect(event, this.href);">Analyse jetzt freischalten</a>
             <span class="cta-subtext">Direkter Zugriff nach dem Kauf &nbsp;·&nbsp; 14 Tage Geld-zurück-Garantie</span>
         </div>
 
