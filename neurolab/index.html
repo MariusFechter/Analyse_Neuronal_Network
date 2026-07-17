@@ -16,22 +16,12 @@
             padding: 40px 20px;
         }
 
-        /* Flex-Container für Überschrift + Logo */
-        .header-flex {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .header-container {
             width: 100%;
             max-width: 800px;
             margin: 0 auto 30px auto;
+            text-align: left;
         }
-
-        .header-logo {
-            width: 35px;
-            opacity: 0.8;
-            margin-left: 15px;
-        }
-
         h1 { font-size: 1.2rem; font-weight: 800; color: #ff7517; text-transform: uppercase; }
         p.subline { font-size: 0.65rem; color: #d9d9d9; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
 
@@ -94,12 +84,9 @@
 </head>
 <body>
 
-    <div class="header-flex">
-        <div class="header-text">
-            <h1>NEUROLAB | NEURONAL NETWORK</h1>
-            <p class="subline">Neuropsychologie & Muster</p>
-        </div>
-        <img src="logo_neuronal_network.webp" alt="Logo" class="header-logo">
+    <div class="header-container">
+        <h1>NEUROLAB | NEURONAL NETWORK</h1>
+        <p class="subline">Neuropsychologie & Muster</p>
     </div>
 
     <div class="product-grid">
