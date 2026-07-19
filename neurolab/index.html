@@ -42,11 +42,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ... Dein bestehendes CSS bleibt unverändert ... */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #000000; color: #F5F5F5; font-family: 'Inter', sans-serif; padding: 40px 20px; }
         .header-container { width: 100%; max-width: 800px; margin: 0 auto 30px auto; text-align: left; }
-        h1 { font-size: 1.2rem; font-weight: 800; color: #ff7517; text-transform: uppercase; }
+        
+        /* Angepasster Header Style */
+        h1 { font-size: 1.2rem; text-transform: uppercase; color: #ff7517; }
+        .brand-light { font-weight: 400; }
+        .brand-bold { font-weight: 800; }
+        
         p.subline { font-size: 0.65rem; color: #d9d9d9; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
         .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 800px; margin: 0 auto; }
         .product-card { background-color: #080808; border: 2px solid #333333; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
@@ -67,7 +71,7 @@
 <body>
 
     <div class="header-container">
-        <h1>NEUROLAB | NEURONAL NETWORK</h1>
+        <h1><span class="brand-light">NEUROLAB</span> | <span class="brand-bold">NEURONAL NETWORK</span></h1>
         <p class="subline">Neuropsychologie & Muster</p>
     </div>
 
@@ -82,7 +86,6 @@
                 <p class="product-subtitle">Warum Substanzen dein Verhalten verändern.</p>
                 <div class="card-footer">
                     <div class="price-tag">15,00 €</div>
-                    <!-- Button angepasst für die Tracking-Funktion -->
                     <a href="https://zugang.neuronalnetwork.de/checkout/buy/3bf34f1a-b531-4855-8c97-6c0456f51a7d" 
                        class="checkout-btn" 
                        onclick="triggerPixelAndRedirect(event, this.href);">Analyse freischalten</a>
